@@ -3,26 +3,35 @@ import React, { Component } from 'react'
 class DigitalClock extends Component {
 
   state = {
-    interval: 0
+    date: new Date()
+  }
+
+  componentDidMount(){
+    this.interval = setInterval(() => this.incrementClock(), 1000)
+  }
+
+  incrementClock = () =>{
+    this.setState(prevState =>{
+      return {date: new Date()}
+    })
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
   }
 
   render () {
     return (
       <div className="app-children">
         <h2 id="digital">
-          11:00 AM
+          {this.state.date.toLocaleTimeString()}
+          {/* 11:00 AM */}
         </h2>
       </div>
     )
   }
   
-  componentDidMount(){
-    this.interval = setInterval(this.setState({state: this.state}),1000)
-  }
-
-  componentWillUnmount(){
-    clearInterval(this.interval)
-  }
+  
 }
 
 export default DigitalClock
