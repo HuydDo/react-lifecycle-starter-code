@@ -12,7 +12,7 @@ class StockTicker extends Component {
     super()
     this.state = ({
       num: 0,
-      currentNum: 0
+      prevNum: 0
     })
   }
   // state = {
@@ -26,7 +26,7 @@ class StockTicker extends Component {
   randomNum = () => {
 
     this.setState({
-      currentNum: this.state.num,
+      prevNum: this.state.num,
       num: Math.floor(Math.random()*90) +10 })
    
   }
@@ -36,8 +36,12 @@ class StockTicker extends Component {
   }
 
   componentDidUpdate(prevState){
-       (this.state.currentNum > this.state.num)? color = divStyle2
-      : color = divStyle1
+  
+  // (this.state.prevNum > this.state.num) ? console.log('pre number: ' + this.state.prevNum) : 
+  // console.log('current number: ' + this.state.num) 
+
+   (this.state.prevNum > this.state.num) ? color = divStyle2 : color = divStyle1
+    
   }
 
   render () {
