@@ -10,10 +10,11 @@ class DigitalClock extends Component {
     this.interval = setInterval(() => this.incrementClock(), 1000)
   }
 
-  incrementClock = () =>{
-    this.setState(prevState =>{
-      return {date: new Date()}
-    })
+  incrementClock = () => {
+    this.setState({date: new Date()})
+    // this.setState(prevState => {
+    //   return {date: new Date()}
+    // })
   }
 
   componentWillUnmount(){

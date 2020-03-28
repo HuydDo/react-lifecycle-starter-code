@@ -39,11 +39,11 @@ class App extends Component {
   render() {
     return (
       <div id='app'>
-      <RandomKoala key={this.state.koala.id} koala={this.state.koala} />       
-       <WidgetSelector handle={this.handleWidget} />
-       {!this.state.analog  && <DigitalClock />}
-       {this.state.analog && <AnalogClock />}
-       <StockTicker />
+        <RandomKoala key={this.state.koala.id} koala={this.state.koala} />       
+        <WidgetSelector handle={this.handleWidget} />
+        {!this.state.analog  && <DigitalClock />}
+        {this.state.analog && <AnalogClock />}
+        <StockTicker />
       </div>
     )
   }
