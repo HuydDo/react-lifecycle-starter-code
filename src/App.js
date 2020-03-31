@@ -51,5 +51,6 @@ class App extends Component {
 }
 
 export default App;
-
-
+// run server and react server 
+//npm start -- --port 8000
+//json-server db.json
