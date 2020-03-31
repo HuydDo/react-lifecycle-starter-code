@@ -26,15 +26,6 @@ class StockTicker extends Component {
     clearInterval(this.interval)
   }
 
-  componentDidUpdate(prevState){
-  
-  // (this.state.prevNum > this.state.num) ? console.log('pre number: ' + this.state.prevNum) : 
-  // console.log('current number: ' + this.state.num) 
-
-  //  (this.state.prevNum > this.state.num) ? color = "red" : color = "green"
-   
-   
-  }
 
   render () {
     return (
