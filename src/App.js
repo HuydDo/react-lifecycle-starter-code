@@ -19,16 +19,21 @@ class App extends Component {
   // }
 
   componentDidMount(){
-    fetch('http://localhost:3000/koalas')
-    // fetch('./db.json')
+    // fetch('http://localhost:3000/koalas')
+    fetch('./db.json')
     .then(res => {
       console.log(res)
       return res.json()
     })
-    .then(data => {
-     console.log(data.koalas[0])
-      return this.setState({koala: data.koalas[0]})
-    })}
+    // .then(data => {
+    //  console.log(data.koalas[0])
+    //   return this.setState({koala: data.koalas[0]})
+      
+    // })
+    .then(koalas => this.setState({
+      koala: koalas[0]
+    }))
+  }
 
    handleWidget = () => {
     this.setState({
