@@ -19,8 +19,8 @@ class App extends Component {
   // }
 
   componentDidMount(){
-    // fetch('http://localhost:3000/koalas')
-    fetch('./db.json')
+    fetch('http://localhost:3000/koalas')
+    // fetch('./db.json')
     .then(res => {
       console.log(res)
       return res.json()

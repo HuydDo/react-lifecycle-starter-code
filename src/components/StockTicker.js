@@ -1,35 +1,26 @@
 import React, { Component } from 'react'
-let color = {}
-const divStyle1 = {
-  color: 'green'
-}
-const divStyle2 = {
-  color: 'red'
-}
+
 class StockTicker extends Component {
 
   constructor(){
     super()
     this.state = ({
       num: 0,
-      prevNum: 0
+      color: "green"
     })
   }
-  // state = {
-  //   num: 0
-  // }
+  
   
   componentDidMount(){
     this.interval = setInterval(() => this.randomNum(), 1000)
   }
 
   randomNum = () => {
-
+   let random = Math.floor(Math.random()*90) +10 
     this.setState({
-      prevNum: this.state.num,
-      num: Math.floor(Math.random()*90) +10 })
-   
-  }
+      num: random,
+      color: (this.state.num > random) ? "red" : "green"
+   })}
   
   componentWillUnmount(){
     clearInterval(this.interval)
@@ -40,8 +31,9 @@ class StockTicker extends Component {
   // (this.state.prevNum > this.state.num) ? console.log('pre number: ' + this.state.prevNum) : 
   // console.log('current number: ' + this.state.num) 
 
-   (this.state.prevNum > this.state.num) ? color = divStyle2 : color = divStyle1
-    
+  //  (this.state.prevNum > this.state.num) ? color = "red" : color = "green"
+   
+   
   }
 
   render () {
@@ -49,7 +41,7 @@ class StockTicker extends Component {
       <div className="app-children">
         <div id="ticker">
           <h2>Flatiron</h2>
-          <div style= {color}>
+          <div style= {{color: this.state.color }}>
             {this.state.num}
           </div>
         </div>
